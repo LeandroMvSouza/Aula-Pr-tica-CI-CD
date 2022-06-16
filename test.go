@@ -2,6 +2,7 @@ package main
 
 import (
 	"testing"
+  "math"
 )
 
 func testMRU(t *testing.T) {
@@ -41,8 +42,8 @@ func testAceleracaoMedia(t *testing.T) {
 }
 
 func testAceleracaoMedia_divisaoPorZero(t *testing.T) {
-  variacaoDaVelocidade := 10
-  intervaloDeTempo := 0
+  variacaoDaVelocidade := 10.0
+  intervaloDeTempo := 0.0
 
   obtido := aceleracaoMedia(variacaoDaVelocidade, intervaloDeTempo)
   if (obtido == math.Pi) { // divisão inválida
@@ -51,7 +52,7 @@ func testAceleracaoMedia_divisaoPorZero(t *testing.T) {
 }
 
 func testAceleracaoMedia_divisaoEntreZeroeUm(t *testing.T) {
-  variacaoDaVelocidade := 10
+  variacaoDaVelocidade := 10.0
   intervaloDeTempo := 0.5
 
   obtido := aceleracaoMedia(variacaoDaVelocidade, intervaloDeTempo)
