@@ -30,6 +30,21 @@ func testMRUV(t *testing.T) {
   }
 }
 
+func testMRUVcomposto(t *testing.T) {
+  pos := 500.0
+  vel := 120.8
+  tempo := 19.9
+  aceleracao := 14.5
+
+  esperado := 5774.9924999999985
+  MRUVesperado := MRUV(pos, vel, tempo, aceleracao)
+  obtido := MRUVcomposto(pos, vel, tempo, aceleracao)
+
+  if (obtido != esperado || obtido != MRUVesperado) {
+    t.Errorf("Contrato modificado. MRUVcomposto() -> obtido %f, esperado %f", obtido, esperado)
+  }
+}
+
 func testAceleracaoMedia(t *testing.T) {
   variacaoDaVelocidade := 150.0
   intervaloDeTempo := 3.5
