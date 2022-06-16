@@ -1,0 +1,55 @@
+name: Test Operating Systems
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+
+jobs:
+  windows:
+    name: Windows - Latest
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
+
+      - name: Unit Tests
+        run: go test -v  ./...
+
+  ubuntu:
+    name: Ubuntu - Latest
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
+
+      - name: Unit Tests
+        run: go test -v ./...
+
+  macOS:
+    name: MacOS - Latest
+    runs-on: macos-latest
+
+    steps:
+      - name: Set up Go
+
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
+
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Unit Tests
+        run: go test -v  ./...
